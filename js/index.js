@@ -22,52 +22,95 @@ function setInterpolationImage(img_wrapper_id, i, images) {
   $('#'+img_wrapper_id).empty().append(image);
 }
 
-var images_list1 = [];
-var images_list2 = [];
-var images_list3 = [];
+var images_list_ram_acc = [];
+var images_list_ram_clipped_log = [];
+var images_list_ram_clipped_linear = [];
+var images_list_dt_ram_acc = [];
+var images_list_dt_ram_clipped_log = [];
+var images_list_dt_ram_clipped_linear = [];
 
-function preloadImages() {
-  var random_seed = document.getElementById("single-menu-seeds").value;
+function preloadImages_ram() {
+    var random_seed_ram = document.getElementById("single-menu-seeds-ram").value;
 
-  var image_path_base = "./img/samples/ram/acc/seed" + String(random_seed);
-  preloadInterpolationImages(image_path_base, images_list1);
+    var image_path_base_ram_acc = "./img/samples/ram/acc/seed" + String(random_seed_ram);
+    preloadInterpolationImages(image_path_base_ram_acc, images_list_ram_acc);
 
-  var image_path_base = "./img/samples/ram/clipped_log/seed" + String(random_seed);
-  preloadInterpolationImages(image_path_base, images_list2);
+    var image_path_base_ram_clipped_log = "./img/samples/ram/clipped_log/seed" + String(random_seed_ram);
+    preloadInterpolationImages(image_path_base_ram_clipped_log, images_list_ram_clipped_log);
 
-  var image_path_base = "./img/samples/ram/clipped_linear/seed" + String(random_seed);
-  preloadInterpolationImages(image_path_base, images_list3);
+    var image_path_base_ram_clipped_linear = "./img/samples/ram/clipped_linear/seed" + String(random_seed_ram);
+    preloadInterpolationImages(image_path_base_ram_clipped_linear, images_list_ram_clipped_linear);
+    
+}
+function preloadImages_dt_ram() {
+    var random_seed_dt_ram = document.getElementById("single-menu-seeds-dt-ram").value;
+
+    var image_path_base_dt_ram_acc = "./img/samples/dt-ram/acc/seed" + String(random_seed_dt_ram);
+    preloadInterpolationImages(image_path_base_dt_ram_acc, images_list_dt_ram_acc);
+
+    var image_path_base_dt_ram_clipped_log = "./img/samples/dt-ram/clipped_log/seed" + String(random_seed_dt_ram);
+    preloadInterpolationImages(image_path_base_dt_ram_clipped_log, images_list_dt_ram_clipped_log);
+
+    var image_path_base_dt_ram_clipped_linear = "./img/samples/dt-ram/clipped_linear/seed" + String(random_seed_dt_ram);
+    preloadInterpolationImages(image_path_base_dt_ram_clipped_linear, images_list_dt_ram_clipped_linear);
 }
 
-function setImages() {
-  // RAM, accuracy-based
-  var id1 = 'sliding-image-wrapper1';
-  $('#slider1').on('input', function(event) {
-    setInterpolationImage(id1, this.value, images_list1);
-  });
-  setInterpolationImage(id1, document.getElementById("slider1").value, images_list1);
-  // $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+function setImages_ram() {
+    // RAM, accuracy-based
+    var image_wrapper_id_ram_acc = 'sliding-image-wrapper-ram-acc';
+    $('#slider-ram-acc').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_ram_acc, this.value, images_list_ram_acc);
+    });
+    setInterpolationImage(image_wrapper_id_ram_acc, document.getElementById("slider-ram-acc").value, images_list_ram_acc);
+    // $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
 
-  // RAM, clipped log
-  var id2 = 'sliding-image-wrapper2';
-  $('#slider2').on('input', function(event) {
-    setInterpolationImage(id2, this.value, images_list2);
-  });
-  setInterpolationImage(id2, document.getElementById("slider2").value, images_list2);
+    // RAM, clipped log
+    var image_wrapper_id_ram_clipped_log = 'sliding-image-wrapper-ram-clipped-log';
+    $('#slider-ram-clipped-log').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_ram_clipped_log, this.value, images_list_ram_clipped_log);
+    });
+    setInterpolationImage(image_wrapper_id_ram_clipped_log, document.getElementById("slider-ram-clipped-log").value, images_list_ram_clipped_log);
 
-  // RAM, clipped linear
-  var id3 = 'sliding-image-wrapper3';
-  $('#slider3').on('input', function(event) {
-    setInterpolationImage(id3, this.value, images_list3);
-  });
-  setInterpolationImage(id3, document.getElementById("slider3").value, images_list3);
+    // RAM, clipped linear
+    var image_wrapper_id_ram_clipped_linear = 'sliding-image-wrapper-ram-clipped-linear';
+    $('#slider-ram-clipped-linear').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_ram_clipped_linear, this.value, images_list_ram_clipped_linear);
+    });
+    setInterpolationImage(image_wrapper_id_ram_clipped_linear, document.getElementById("slider-ram-clipped-linear").value, images_list_ram_clipped_linear);
+  }
+
+function setImages_dt_ram() {
+    // DT-RAM, accuracy-based
+    var image_wrapper_id_dt_ram_acc = 'sliding-image-wrapper-dt-ram-acc';
+    $('#slider-dt-ram-acc').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_dt_ram_acc, this.value, images_list_dt_ram_acc);
+    });
+    setInterpolationImage(image_wrapper_id_dt_ram_acc, document.getElementById("slider-dt-ram-acc").value, images_list_dt_ram_acc);
+    // $('#interpolation-slider').prop('max', NUM_INTERP_FRAMES - 1);
+
+    // DT-RAM, clipped log
+    var image_wrapper_id_dt_ram_clipped_log = 'sliding-image-wrapper-dt-ram-clipped-log';
+    $('#slider-dt-ram-clipped-log').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_dt_ram_clipped_log, this.value, images_list_dt_ram_clipped_log);
+    });
+    setInterpolationImage(image_wrapper_id_dt_ram_clipped_log, document.getElementById("slider-dt-ram-clipped-log").value, images_list_dt_ram_clipped_log);
+
+    // DT-RAM, clipped linear
+    var image_wrapper_id_dt_ram_clipped_linear = 'sliding-image-wrapper-dt-ram-clipped-linear';
+    $('#slider-dt-ram-clipped-linear').on('input', function(event) {
+      setInterpolationImage(image_wrapper_id_dt_ram_clipped_linear, this.value, images_list_dt_ram_clipped_linear);
+    });
+    setInterpolationImage(image_wrapper_id_dt_ram_clipped_linear, document.getElementById("slider-dt-ram-clipped-linear").value, images_list_dt_ram_clipped_linear);
 }
 
-function preloadAndSetImages() {
-  // preload images
-  preloadImages();
-  setImages();
+function preloadAndSetImages_ram() {
+  preloadImages_ram();
+  setImages_ram();
+}
 
+function preloadAndSetImages_dt_ram() {
+  preloadImages_dt_ram();
+  setImages_dt_ram();
 }
 
 $(document).ready(function() {
@@ -116,6 +159,7 @@ $(document).ready(function() {
       })
     }, false);*/
 
-    preloadAndSetImages();
+    preloadAndSetImages_ram();
+    preloadAndSetImages_dt_ram();
     bulmaSlider.attach();
 })
