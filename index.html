@@ -168,7 +168,9 @@
                     <b>RAM on the digit recognition task</b>
                 </h4>
                 <p class="text-justify">
-                    Visulize the performance of RAM models trained by different reward functions. Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
+                    Visulize the performance of RAM models trained by different reward functions. 
+                    RAM executes a fixed number of exploration steps (18 steps) before performing the final digit recognition. 
+                    Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
                     The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. You can change the random seeds to see more cases. 
                 </p>
                 <ul class="list-inline">
@@ -211,7 +213,7 @@
                     <p class="text-center">Clipped logarithmic reward</p>
                 </div>
             </div>
-            <div class="col-md-12 col-container text-center">
+            <div class="col-md-12 text-center">
                 <div class="col-md-6 col text-center">
                     <div class="sliding-image-wrapper" id="sliding-image-wrapper-ram-acc">
                         Loading...
@@ -223,7 +225,7 @@
                     <output for="slider-ram-acc">0</output>
                     <p class="text-center">Accuracy-based reward</p>
                 </div>
-                <div class="col-md-6 col">
+                <div class="col-md-6">
                     <center> 
                         <image src="img/plots/digit-recognition-baseline-comparison-ram.jpg" style="max-width: 75%;margin-top:15%">
                         <p class="text-center">Training curves</p>
@@ -239,7 +241,8 @@
                     <b>DT-RAM on the digit recognition task</b>
                 </h4>
                 <p class="text-justify">
-                    Visulize the performance of DT-RAM models trained by different reward functions. Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
+                    Visulize the performance of DT-RAM models trained by different reward functions. Different from RAM, DT-RAM learns to terminate the exploration before reaching the maximum number of movement steps (18 steps). 
+                    Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
                     The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. You can change the random seeds to see more cases. 
                 </p>
                 <ul class="list-inline">
