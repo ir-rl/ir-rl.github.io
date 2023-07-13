@@ -169,7 +169,7 @@
                 </h4>
                 <p class="text-justify">
                     Visulize the performance of RAM models trained by different reward functions. Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
-                    The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. 
+                    The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. You can change the random seeds to see more cases. 
                 </p>
                 <ul class="list-inline">
                     <li>
@@ -211,8 +211,8 @@
                     <p class="text-center">Clipped logarithmic reward</p>
                 </div>
             </div>
-            <div class="col-md-12 text-center">
-                <div class="col-md-6 text-center">
+            <div class="col-md-12 col-container text-center">
+                <div class="col-md-6 col text-center">
                     <div class="sliding-image-wrapper" id="sliding-image-wrapper-ram-acc">
                         Loading...
                     </div>
@@ -223,9 +223,9 @@
                     <output for="slider-ram-acc">0</output>
                     <p class="text-center">Accuracy-based reward</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col">
                     <center> 
-                        <image src="img/plots/digit-recognition-baseline-comparison-ram.jpg" style="max-width: 75%;max-height: 75%; ">
+                        <image src="img/plots/digit-recognition-baseline-comparison-ram.jpg" style="max-width: 75%;margin-top:15%">
                         <p class="text-center">Training curves</p>
                     </center>
                 </div>
@@ -240,7 +240,7 @@
                 </h4>
                 <p class="text-justify">
                     Visulize the performance of DT-RAM models trained by different reward functions. Use the slider to change the training epoch when the model is evaluated. Samples are randomly selected from the evalution dataset.
-                    The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. 
+                    The starting, intermediate, and stopping glimpses are represented by yellow, green, and red boxes respectively. You can change the random seeds to see more cases. 
                 </p>
                 <ul class="list-inline">
                     <li>
@@ -296,12 +296,65 @@
                 </div>
                 <div class="col-md-6">
                     <center> 
-                        <image src="img/plots/digit-recognition-baseline-comparison-accuracy-dt-ram.jpg" style="max-width: 75%;max-height: 75%; ">
+                        <image src="img/plots/digit-recognition-baseline-comparison-accuracy-dt-ram.jpg" style="max-width: 75%; margin-top:15%; ">
                         <p class="text-center">Training curves</p>
                     </center>
                 </div>
             </div>
         </div>
+
+
+        <!-- Samples: Object counting -->
+        <div class="row"> 
+            <div class="col-md-12 text-center">
+                <h4 class="text-justify">
+                    <b>Robotic object counting</b>
+                </h4>
+                <p class="text-justify">
+                    Visualize the performance of agents trained by different reward functions on the robotic object counting task. 
+                    We provide 50 randomly selected samples. Use the slider to change the indexes of samples. 
+                </p>
+                <div class="col-md-12 text-center">
+                    <p>Select a sample: </p>
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <input class="slider has-output-tooltip is-fullwidth is-large is-info"
+                        style="display: block; margin-left: auto; margin-right: auto; width: 100%;"
+                        id="slider-obj-counting"
+                        step="1" min="1" max="50" value="1" type="range">
+                    <output for="slider-obj-counting">1</output>
+                    <!-- <p class="text-center">Clipped linear reward</p> -->
+                </div>
+                <div class="col-md-8 col-md-offset-2 text-justify">
+                    <!-- Goal object: cube_small_blue   Ground-truth label: 5 -->
+                    <p id="text-goal">Goal object</p>  
+                    <p id="text-label">Label</p>  
+                </div>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <div class="col-md-4 text-center">
+                    <div class="sliding-image-wrapper" id="sliding-image-wrapper-obj-counting-clipped-linear">
+                        Loading...
+                    </div>
+                    <p class="text-center">Clipped linear reward</p>
+                    <p id="text-linear-pred" class="text-center">Prediction: </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="sliding-image-wrapper" id="sliding-image-wrapper-obj-counting-clipped-log">
+                        Loading...
+                    </div>
+                    <p class="text-center">Clipped logarithmic reward</p>
+                    <p id="text-log-pred" class="text-center">Prediction: </p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="sliding-image-wrapper" id="sliding-image-wrapper-obj-counting-acc">
+                        Loading...
+                    </div>
+                    <p class="text-center">Accuracy-based reward</p>
+                    <p id="text-acc-pred" class="text-center">Prediction: </p>
+                </div>
+            </div>
 
          <div class="row">
             <div class="col-md-8 col-md-offset-2">
